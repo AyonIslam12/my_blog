@@ -5,7 +5,7 @@
                 <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 col-12">
                     <div class="footer-widget">
                         <div class="footer-logo mb-25">
-                            <img src="{{asset('contents/website')}}/img/logo/1.png" alt="" />
+                            <img src="{{asset('/logo.png')}}" alt="" />
                         </div>
                         <div class="footer-content">
                             <p>OneClick is a premium Wordpress theme with advanced admin module. It's extremely customizable, easy to use and</p>
@@ -113,7 +113,7 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-12">
                     <div class="copyright">
-                        <span>Copyright &copy; 2016 <a href="#">HasTech</a> All Rights Reserved.</span>
+                        <span>Copyright &copy; 2021 <a href="#">Mehedi-Hasan</a> All Rights Reserved.</span>
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-6 col-md-6 col-12">
