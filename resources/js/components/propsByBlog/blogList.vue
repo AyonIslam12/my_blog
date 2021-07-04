@@ -1,8 +1,9 @@
 <template>
 <div class="row">
     <div class="col-md-6">
-        <div class="card mb-3" v-for="item in blog_list" :key="item.id">
-            <div @click="get_blog_details(item)" style="cursor:pointer" class="card-body">
+
+    <div class="card mb-3" v-for="item in get_blog_list" :key="item.id">
+            <div @click="fetch_blog_details(item)" style="cursor:pointer" class="card-body">
                 <h5>{{ item.title }}</h5>
                 <p>{{ item.description }}</p>
             </div>
@@ -10,7 +11,7 @@
     </div>
 
     <div class="col-md-6">
-        <blog-details :post_comment="post_comment" :selected_comments="selected_comments" :blog_details="blog_details"></blog-details>
+    <blog-details></blog-details>
 
     </div>
 </div>
@@ -20,13 +21,15 @@
 <script>
 
 import BlogDetails from './blogDetails.vue'
+import { mapGetters,mapActions } from "vuex";
 export default {
     components:{
         BlogDetails
     },
     data: function(){
        return {
-            blog_list:[
+
+           /*  blog_list:[
             {
                 id:1,
                 title: 'This is Blog1',
@@ -52,12 +55,13 @@ export default {
                 title: 'This is Blog5',
                 description: 'Blog4 Lorem ipsum dolor sit amet consectetur adipisicing elit. A atque assumenda deserunt doloremque et consequatur molestiae quasi enim, rerum saepe.'
             },
-        ],
-        blog_details: {
+        ], */
+
+       /*  blog_details: {
             title: '',
             description: '',
 
-        },
+        }, */
         comments:[
             {
                 id:1,
@@ -95,10 +99,14 @@ export default {
     },
 
     methods:{
-        get_blog_details: function(blog){
+         ...mapActions([
+             'fetch_blog_details'
+        ]),
+
+      /*   get_blog_details: function(blog){
             this.blog_details = blog;
             this.get_comments(blog.id);
-        },
+        }, */
         get_comments: function(blog_id){
              this.selected_comments = this.comments.filter((item)=>item.blog_id === blog_id);
         },
@@ -111,6 +119,11 @@ export default {
             console.log(comment,this.comments);
         }
 
+    },
+    computed: {
+        ...mapGetters([
+            'get_blog_list',
+        ]),
     }
 };
 </script>

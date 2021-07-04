@@ -2,21 +2,27 @@
 <div>
       <div class="card mb-2">
         <div class="card-body">
-            <h5>{{blog_details.title}}</h5>
-            <p>{{blog_details.description}}</p>
+            <h5>{{get_blog_details.title}}</h5>
+            <p>{{get_blog_details.description}}</p>
         </div>
     </div>
-    <comments :blog_details="blog_details" :post_comment="post_comment" :selected_comments="selected_comments"></comments>
+     <comments ></comments>
 </div>
 </template>
 
 <script>
-import Comments from './comments.vue'
+import Comments from './comments.vue';
+import { mapGetters,mapActions } from "vuex";
 export default {
-    props:['blog_details','selected_comments','post_comment'],
+  /*   props:['blog_details','selected_comments','post_comment'], */
     components:{
         Comments
-        }
+        },
+    computed: {
+        ...mapGetters([
+            'get_blog_details',
+        ]),
+    }
 
 }
 </script>

@@ -7,6 +7,8 @@
 require('./bootstrap');
 
 window.Vue = require('vue').default;
+//import vuex
+const { default: store } = require('./store/index')
 
 /**
  * The following block of code may be used to automatically register your
@@ -31,5 +33,6 @@ Vue.component('blogList', require('./components/propsByBlog/blogList.vue').defau
 if(document.getElementById('app')){
     const app = new Vue({
         el: '#app',
+        store,
     });
 }
